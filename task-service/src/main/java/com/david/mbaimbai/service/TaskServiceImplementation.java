@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
 public class TaskServiceImplementation implements TaskService {
     @Autowired
     private TaskRepository taskRepository;
-
     @Override
     public Task createTask(Task task, String requesterRole) throws Exception {
         if (!requesterRole.equals("ROLE_ADMIN")) {
