@@ -70,7 +70,7 @@ public class TaskServiceImplementation implements TaskService {
     public Task assignToUser(Long userId, Long taskId) throws Exception {
         Task task = findTaskById(taskId);
         task.setAssignedUserId(userId);
-        task.setTaskStatus(TaskStatus.COMPLETED);
+        task.setTaskStatus(TaskStatus.IN_PROGRESS);
         return taskRepository.save(task);
     }
 
