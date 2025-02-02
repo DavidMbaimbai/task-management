@@ -2,7 +2,7 @@ package com.david.mbaimbai.enums;
 
 public enum TaskStatus {
     PENDING("PENDING"),
-    ASSIGNED("ASSIGNED"),
+    ASSIGNED("IN_PROGRESS"),
     COMPLETED("COMPLETED");
     TaskStatus(String completed) {}
 }
