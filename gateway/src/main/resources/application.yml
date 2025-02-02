@@ -13,7 +13,7 @@ spring:
         - id: TASK-SERVICE
           uri: lb://TASK-SERVICE
           predicates:
-            - Path=/api/task/**, /task/**
+            - Path=/api/tasks/**, /tasks/**
       default-filters:
         - DedupeResponseHeader= Access-Control-Allow-Credentials Access-Control-Allow-Origin
       globalcors:
