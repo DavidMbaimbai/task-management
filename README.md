@@ -26,9 +26,14 @@ Database: Use an in-memory database (e.g., H2) to store user and task data for s
 Modular Design: Code should be well-structured, using layers like Controller, Service, and Repository to ensure clean and maintainable architecture.
 Version Control: Use GitHub for version control. Commits should have meaningful messages that reflect the changes made.
 Microservices Architecture
-This project consists of multiple microservices with service discovery and API routing. The services should be run in the following order:
+This project consists of 4 microservices with service discovery and API routing. The services should be run in the
+following order:
 
 Eureka Server: Service discovery to register all microservices.
 API Gateway: Routes client requests to the appropriate service.
 User Service: Handles user creation and authentication.
-Task Service: Manages tasks (creation, listing, updating, and deletion).
+Task Service: Manages tasks (creation, retrieval, updating, and deletion).
+
+NB: Please the following video for testing purposes:
+https://drive.google.com/file/d/1liljZPZ1zUmpgWico_vQTE_Fd753Qbin/view?usp=sharing
+
