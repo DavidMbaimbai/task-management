@@ -40,8 +40,8 @@ class TaskControllerTest {
     @Test
     void createTask_AdminRole_Success() throws Exception {
         Task task = new Task();
-        task.setTitle("Test Task");
-        task.setDescription("Test Description");
+        task.setTitle("Task 1");
+        task.setDescription("Description 1");
 
         UserDto user = new UserDto();
         user.setRole("ROLE_ADMIN");
