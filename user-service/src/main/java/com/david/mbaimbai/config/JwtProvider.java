@@ -3,7 +3,6 @@ package com.david.mbaimbai.config;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
-import org.hibernate.sql.ast.tree.expression.Collation;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 
@@ -28,16 +27,15 @@ public class JwtProvider {
         return jwt;
     }
 
-    public static String getEmailFromJwtToken(String jwt){
-        jwt = jwt.substring(7);
+    public static String getEmailFromJwtToken(String jwt) {
         Claims claims = Jwts.parser()
                 .setSigningKey(key)
                 .build()
                 .parseClaimsJws(jwt)
                 .getBody();
-        String email = String.valueOf(claims.get("email"));
-        return email;
+        return String.valueOf(claims.get("email"));
     }
+
     private static String populateAuthorities(Collection<? extends GrantedAuthority> collection) {
         Set<String> auths = new HashSet<>();
         for(GrantedAuthority authority: collection){
