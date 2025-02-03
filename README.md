@@ -22,7 +22,7 @@ Use JWT for user authentication and securing API endpoints.
 Users need to authenticate to perform task-related operations.
 Technical Requirements
 Java Framework: The backend API is developed using Spring Boot.
-Database: Use an in-memory database (e.g., H2) to store user and task data for simplicity.
+Database: Use an in-memory database (H2) to store user and task data for simplicity.
 Modular Design: Code should be well-structured, using layers like Controller, Service, and Repository to ensure clean and maintainable architecture.
 Version Control: Use GitHub for version control. Commits should have meaningful messages that reflect the changes made.
 Microservices Architecture
