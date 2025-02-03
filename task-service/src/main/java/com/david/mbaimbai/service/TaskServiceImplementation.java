@@ -1,7 +1,10 @@
 package com.david.mbaimbai.service;
 
+import com.david.mbaimbai.constants.Constants;
 import com.david.mbaimbai.entity.Task;
 import com.david.mbaimbai.enums.TaskStatus;
+import com.david.mbaimbai.exceptions.AdminUserException;
+import com.david.mbaimbai.exceptions.ResourceNotFoundException;
 import com.david.mbaimbai.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +20,7 @@ public class TaskServiceImplementation implements TaskService {
     @Override
     public Task createTask(Task task, String requesterRole) throws Exception {
         if (!requesterRole.equals("ROLE_ADMIN")) {
-            throw new Exception("only admin can create a task");
+            throw new AdminUserException(Constants.STATUS_403_MESSAGE);
         }
         task.setTaskStatus(TaskStatus.PENDING);
         task.setCreatedAt(LocalDateTime.now());
@@ -26,7 +29,7 @@ public class TaskServiceImplementation implements TaskService {
 
     @Override
     public Task findTaskById(Long id) throws Exception {
-        return taskRepository.findById(id).orElseThrow(() -> new Exception("task not found with id " + id));
+        return taskRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(Constants.STATUS_407_MESSAGE + id));
     }
 
     @Override

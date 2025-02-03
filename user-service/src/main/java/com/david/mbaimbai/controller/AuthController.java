@@ -1,17 +1,17 @@
 package com.david.mbaimbai.controller;
 
 import com.david.mbaimbai.config.JwtProvider;
+import com.david.mbaimbai.constants.Constants;
 import com.david.mbaimbai.entity.User;
+import com.david.mbaimbai.exceptions.InvalidUserException;
 import com.david.mbaimbai.repository.UserRepository;
 import com.david.mbaimbai.request.LoginRequest;
 import com.david.mbaimbai.response.AuthResponse;
 import com.david.mbaimbai.service.CustomUserServiceImplementation;
-import com.david.mbaimbai.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -87,11 +87,11 @@ public class AuthController {
         UserDetails userDetails = customUserDetails.loadUserByUsername(username);
         log.info("sign userDetails-" + userDetails);
         if (userDetails == null){
-            throw new BadCredentialsException("Invalid username or password");
+            throw new InvalidUserException(Constants.STATUS_INVALID_USER);
         }
         if (!passwordEncoder.matches(password, userDetails.getPassword())){
             log.error("sign userDetails - password does not match");
-            throw new BadCredentialsException("Invalid username or password");
+            throw new InvalidUserException(Constants.STATUS_INVALID_USER);
         }
         return new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
     }
