@@ -34,6 +34,6 @@ API Gateway: Routes client requests to the appropriate service.
 User Service: Handles user creation and authentication.
 Task Service: Manages tasks (creation, retrieval, updating, and deletion).
 
-NB: Please the following video for testing purposes:
+NB: Please see the following video for testing purposes:
 https://drive.google.com/file/d/1liljZPZ1zUmpgWico_vQTE_Fd753Qbin/view?usp=sharing
 
