@@ -1,334 +1,333 @@
 {
-  "info": {
-    "_postman_id": "dbce3c88-6795-4bba-a64c-713b3098efa8",
-    "name": "Task-Management",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "32953862",
-    "_collection_link": "https://sumertech.postman.co/workspace/SumerTech-Workspace~12453f41-6cb2-465f-a2fc-bf2c7378f347/collection/32953862-dbce3c88-6795-4bba-a64c-713b3098efa8?action=share&source=collection_link&creator=32953862"
-  },
-  "item": [
-    {
-      "name": "user-service",
-      "item": [
-        {
-          "name": "signup",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "   {\r\n    \"fullName\": \"Mbaimbai\",\r\n    \"email\": \"david.mbaimbai@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"role\": \"ROLE_ADMIN\"\r\n    }",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:9888/auth/signup",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "9888",
-              "path": [
-                "auth",
-                "signup"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "signin",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE3Mzg0OTM2NTgsImV4cCI6MTczODU4MDA1OCwiZW1haWwiOiJkYXZpZC5tYmFpbWJhaUBnbWFpbC5jb20iLCJhdXRob3JpdGllcyI6IiJ9.NoMIgnstu2YrOjQxeu02b62XNXVtGi6HNtT5LOjlclpTwvvy7fW-bQfION_hZp62",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"email\": \"david.mbaimbai@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:5000/auth/signin",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "5000",
-              "path": [
-                "auth",
-                "signin"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "profile",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE3Mzg2MDA4MDgsImV4cCI6MTczODY4NzIwOCwiZW1haWwiOiJkYXZpZC5tYmFpbWJhaUBnbWFpbC5jb20iLCJhdXRob3JpdGllcyI6IiJ9.5zYNarAPxaXDdNgbOogY1wSeY4ffIilSISN6bPAax2c43KTxQd3vo8FAa5icGTEo",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:9888/users/profile",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "9888",
-              "path": [
-                "users",
-                "profile"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "get-all-users",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE3Mzg0OTM2ODksImV4cCI6MTczODU4MDA4OSwiZW1haWwiOiJkYXZpZC5tYmFpbWJhaUBnbWFpbC5jb20iLCJhdXRob3JpdGllcyI6IiJ9.UGpQzgNr8B9xDkRNkwAF9OKiH3npYk1M0uV3q5UEwHhNvO4QnR0tR21sCD4FsHyf",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:5000/users/all",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "5000",
-              "path": [
-                "users",
-                "all"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "task-service",
-      "item": [
-        {
-          "name": "create-task",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE3Mzg2MDA4MDgsImV4cCI6MTczODY4NzIwOCwiZW1haWwiOiJkYXZpZC5tYmFpbWJhaUBnbWFpbC5jb20iLCJhdXRob3JpdGllcyI6IiJ9.5zYNarAPxaXDdNgbOogY1wSeY4ffIilSISN6bPAax2c43KTxQd3vo8FAa5icGTEo",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"title\": \"Create a Api with for task management\",\r\n    \"description\": \"Can create a responsive with Java on backend  and angular on the frontend\",\r\n    \"deadline\": \"2025-02-01T22:08:37\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:9887/tasks/create",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "9887",
-              "path": [
-                "tasks",
-                "create"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "get-all-tasks",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE3Mzg2MDA5MjQsImV4cCI6MTczODY4NzMyNCwiZW1haWwiOiJkYXZpZC5tYmFpbWJhaUBnbWFpbC5jb20iLCJhdXRob3JpdGllcyI6IiJ9.xmN0LJozwcMT7extlMJF3IlyHkLckLjAL9XaWBRal7K2pDHNDG02cZTbqQhibQ_W",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:5000/tasks/all?status=PENDING",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "5000",
-              "path": [
-                "tasks",
-                "all"
-              ],
-              "query": [
-                {
-                  "key": "status",
-                  "value": "PENDING"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "update-task",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE3Mzg2MDA5MjQsImV4cCI6MTczODY4NzMyNCwiZW1haWwiOiJkYXZpZC5tYmFpbWJhaUBnbWFpbC5jb20iLCJhdXRob3JpdGllcyI6IiJ9.xmN0LJozwcMT7extlMJF3IlyHkLckLjAL9XaWBRal7K2pDHNDG02cZTbqQhibQ_W",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "PUT",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"title\": \"Create a Website\",\r\n    \"image\": \"https://www.istockphoto.com/photo/bueatiful-tea-plantation-on-mountain-gm1161878589-318502373?utm_source=pixabay&utm_medium=affiliate&utm_campaign=SRP_image_sponsored&utm_content=https%3A%2F%2Fpixabay.com%2Fimages%2Fsearch%2F&utm_term=nature\",\r\n    \"description\": \"You can a responsive with Java on backend  and angular on the frontend\",\r\n    \"deadline\": \"2025-02-01T22:08:37\"\r\n\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:5000/tasks/1",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "5000",
-              "path": [
-                "tasks",
-                "1"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "find-task-by-id",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE3Mzg2MDA5MjQsImV4cCI6MTczODY4NzMyNCwiZW1haWwiOiJkYXZpZC5tYmFpbWJhaUBnbWFpbC5jb20iLCJhdXRob3JpdGllcyI6IiJ9.xmN0LJozwcMT7extlMJF3IlyHkLckLjAL9XaWBRal7K2pDHNDG02cZTbqQhibQ_W",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:5000/tasks/3",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "5000",
-              "path": [
-                "tasks",
-                "3"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "complete",
-          "request": {
-            "method": "PUT",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:5000/tasks/3/complete",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "5000",
-              "path": [
-                "tasks",
-                "3",
-                "complete"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "delete",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:5000/tasks/1",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "5000",
-              "path": [
-                "tasks",
-                "1"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    }
-  ]
+	"info": {
+		"_postman_id": "88157168-e347-4dd0-804c-0e5383f0c77f",
+		"name": "Task-Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32953862"
+	},
+	"item": [
+		{
+			"name": "user-service",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "   {\r\n    \"fullName\": \"Mbaimbai\",\r\n    \"email\": \"david.mbaimbai@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"role\": \"ROLE_ADMIN\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9888/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9888",
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE3Mzg0OTM2NTgsImV4cCI6MTczODU4MDA1OCwiZW1haWwiOiJkYXZpZC5tYmFpbWJhaUBnbWFpbC5jb20iLCJhdXRob3JpdGllcyI6IiJ9.NoMIgnstu2YrOjQxeu02b62XNXVtGi6HNtT5LOjlclpTwvvy7fW-bQfION_hZp62",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"david.mbaimbai@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE3Mzg2MDA4MDgsImV4cCI6MTczODY4NzIwOCwiZW1haWwiOiJkYXZpZC5tYmFpbWJhaUBnbWFpbC5jb20iLCJhdXRob3JpdGllcyI6IiJ9.5zYNarAPxaXDdNgbOogY1wSeY4ffIilSISN6bPAax2c43KTxQd3vo8FAa5icGTEo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9888/users/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9888",
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE3Mzg0OTM2ODksImV4cCI6MTczODU4MDA4OSwiZW1haWwiOiJkYXZpZC5tYmFpbWJhaUBnbWFpbC5jb20iLCJhdXRob3JpdGllcyI6IiJ9.UGpQzgNr8B9xDkRNkwAF9OKiH3npYk1M0uV3q5UEwHhNvO4QnR0tR21sCD4FsHyf",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/users/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "task-service",
+			"item": [
+				{
+					"name": "create-task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE3Mzg2MDA4MDgsImV4cCI6MTczODY4NzIwOCwiZW1haWwiOiJkYXZpZC5tYmFpbWJhaUBnbWFpbC5jb20iLCJhdXRob3JpdGllcyI6IiJ9.5zYNarAPxaXDdNgbOogY1wSeY4ffIilSISN6bPAax2c43KTxQd3vo8FAa5icGTEo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Create a Api with for task management\",\r\n    \"description\": \"Can create a responsive with Java on backend  and angular on the frontend\",\r\n    \"deadline\": \"2025-02-01T22:08:37\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9887/tasks/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9887",
+							"path": [
+								"tasks",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-tasks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE3Mzg2MDA5MjQsImV4cCI6MTczODY4NzMyNCwiZW1haWwiOiJkYXZpZC5tYmFpbWJhaUBnbWFpbC5jb20iLCJhdXRob3JpdGllcyI6IiJ9.xmN0LJozwcMT7extlMJF3IlyHkLckLjAL9XaWBRal7K2pDHNDG02cZTbqQhibQ_W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/tasks/all?status=PENDING",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"tasks",
+								"all"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "PENDING"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE3Mzg2MDA5MjQsImV4cCI6MTczODY4NzMyNCwiZW1haWwiOiJkYXZpZC5tYmFpbWJhaUBnbWFpbC5jb20iLCJhdXRob3JpdGllcyI6IiJ9.xmN0LJozwcMT7extlMJF3IlyHkLckLjAL9XaWBRal7K2pDHNDG02cZTbqQhibQ_W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Create a Website\",\r\n    \"image\": \"https://www.istockphoto.com/photo/bueatiful-tea-plantation-on-mountain-gm1161878589-318502373?utm_source=pixabay&utm_medium=affiliate&utm_campaign=SRP_image_sponsored&utm_content=https%3A%2F%2Fpixabay.com%2Fimages%2Fsearch%2F&utm_term=nature\",\r\n    \"description\": \"You can a responsive with Java on backend  and angular on the frontend\",\r\n    \"deadline\": \"2025-02-01T22:08:37\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/tasks/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"tasks",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find-task-by-id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE3Mzg2MDA5MjQsImV4cCI6MTczODY4NzMyNCwiZW1haWwiOiJkYXZpZC5tYmFpbWJhaUBnbWFpbC5jb20iLCJhdXRob3JpdGllcyI6IiJ9.xmN0LJozwcMT7extlMJF3IlyHkLckLjAL9XaWBRal7K2pDHNDG02cZTbqQhibQ_W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/tasks/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"tasks",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "complete",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/tasks/3/complete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"tasks",
+								"3",
+								"complete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/tasks/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"tasks",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
 }
