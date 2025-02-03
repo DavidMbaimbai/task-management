@@ -36,8 +36,7 @@ public class AuthController {
     @PostMapping("/signup")
     public ResponseEntity<AuthResponse> createUserHandler(@RequestBody User user) throws Exception {
         String email = user.getEmail();
-        String firstName = user.getFirstName();
-        String lastName = user.getLastName();
+        String fullName = user.getFullName();
         String password = user.getPassword();
         String role = user.getRole();
         User isEmailExist = userRepository.findByEmail(email);
@@ -50,8 +49,7 @@ public class AuthController {
 
         User createdUser = new User();
         createdUser.setEmail(email);
-        createdUser.setFirstName(firstName);
-        createdUser.setLastName(lastName);
+        createdUser.setFullName(fullName);
         createdUser.setRole(role);
         createdUser.setPassword(passwordEncoder.encode(password));
 
@@ -62,7 +60,7 @@ public class AuthController {
         String token = JwtProvider.generateToken(authentication);
         AuthResponse response = new AuthResponse();
         response.setJwt(token);
-        response.setMessage("Registeration Successful");
+        response.setMessage("Registration Successful");
         response.setStatus(true);
 
         return new ResponseEntity<>(response, HttpStatus.OK);

@@ -14,7 +14,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
-//import javax.crypto.SecretKey;
+
 import javax.crypto.SecretKey;
 import java.io.IOException;
 import java.util.List;
@@ -25,8 +25,12 @@ public class JwtTokenValidator extends OncePerRequestFilter {
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
         String jwt = request.getHeader(JwtConstant.JWT_HEADER);
-        if (jwt!=null){
-            jwt = jwt.substring(7);
+
+        if (jwt != null) {
+            jwt = jwt.trim();
+            if (jwt.startsWith("Bearer ")) {
+                jwt = jwt.substring(7);
+            }
             try {
                 SecretKey key = Keys.hmacShaKeyFor(JwtConstant.SECRETE_KEY.getBytes());
                 Claims claims = Jwts.parser()
@@ -39,12 +43,10 @@ public class JwtTokenValidator extends OncePerRequestFilter {
                 List<GrantedAuthority> auths = AuthorityUtils.commaSeparatedStringToAuthorityList(authorities);
                 Authentication authentication = new UsernamePasswordAuthenticationToken(email, null, auths);
                 SecurityContextHolder.getContext().setAuthentication(authentication);
-
-            } catch (Exception exception){
+            } catch (Exception exception) {
                 throw new BadRequestException("Invalid token!");
             }
         }
         filterChain.doFilter(request, response);
-
     }
 }

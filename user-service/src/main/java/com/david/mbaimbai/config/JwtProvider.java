@@ -28,19 +28,20 @@ public class JwtProvider {
     }
 
     public static String getEmailFromJwtToken(String jwt) {
+        jwt = jwt.substring(7);
         Claims claims = Jwts.parser()
                 .setSigningKey(key)
                 .build()
                 .parseClaimsJws(jwt)
                 .getBody();
-        return String.valueOf(claims.get("email"));
+        String email = String.valueOf(claims.get("email"));
+        return email;
     }
-
     private static String populateAuthorities(Collection<? extends GrantedAuthority> collection) {
         Set<String> auths = new HashSet<>();
         for(GrantedAuthority authority: collection){
             auths.add(authority.getAuthority());
         }
-return String.join("", auths);
+        return String.join("", auths);
     }
 }
